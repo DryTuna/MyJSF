@@ -1,11 +1,13 @@
 package resources;
 
+import java.io.Serializable;
+
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 @Named
 @ViewScoped
-public class GuessNumber {
+public class GuessNumber implements Serializable {
 	private int number;
 	private String guessString;
 	
@@ -34,7 +36,6 @@ public class GuessNumber {
 			return "";
 		}
 		
-		String temp;
 		int guess = Integer.parseInt(guessString);
 		if (guess < number) {
 			return "Too low";
