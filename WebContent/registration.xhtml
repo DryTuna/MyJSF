@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+	<h:head>
+		<title>Registration</title>
+	</h:head> 
+	<h:body> 
+		<h:form>
+			<h3>
+				Registration Form
+				<h:graphicImage name="usIcon.gif" library="image" />
+				<h:panelGrid columns="6" style="color: green" >
+					<h:outputLabel value="#{registration.lastName}"/>
+					<h:inputText id="lastName" />
+					<h:outputLabel value="#{registration.firstName}"/>
+					<h:inputText id="firstName" />
+					<h:outputLabel value="#{registration.mi}"/>
+					<h:inputText id="mi" />
+				</h:panelGrid>
+				<!--  Radio Buttons -->
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Gender: "></h:outputLabel>
+					<h:selectOneRadio id="gender" value="#{registration.gender}">
+						<f:selectItem itemValue="Male" itemLabel="Male" />
+						<f:selectItem itemValue="Female" itemLabel="Female" />
+					</h:selectOneRadio>
+				</h:panelGrid>
+				<!-- Combo Box and List -->
+				<h:panelGrid columns="4">
+					<h:outputLabel value="Major:"></h:outputLabel>
+					<h:selectOneMenu id="major" value="#{registration.major}">
+						<f:selectItem itemValue="Computer Science" />
+						<f:selectItem itemValue="Mathematics" />
+					</h:selectOneMenu>
+					<h:outputLabel value="Minor:"></h:outputLabel>
+					<h:selectManyListbox id="minor" value="#{registration.minor}">
+						<f:selectItem itemValue="Computer Science" />
+						<f:selectItem itemValue="Mathematics" />
+						<f:selectItem itemValue="English" />
+					</h:selectManyListbox>
+				</h:panelGrid>
+				<!-- Check Boxes -->
+				<h:panelGrid columns="4">
+					<h:outputLabel value="Hobby:" />
+					<h:selectManyCheckbox id="hobby" value="#{registration.hobby}">
+						<f:selectItem itemValue="Tennis" />
+						<f:selectItem itemValue="Golf" />
+						<f:selectItem itemValue="Ping Pong" />
+					</h:selectManyCheckbox>
+				</h:panelGrid>
+				<!-- Text Area -->
+				<h:panelGrid columns="1">
+					<h:outputLabel>Remarks:</h:outputLabel>
+					<h:inputTextarea id="remarks" 
+						style="width: 400px; height: 50px"
+						value="#{registration.remarks}"/>
+				</h:panelGrid>
+				<!--  Command Button -->
+				<h:commandButton value="Register" />
+				<h:outputText escape="false" value="#{registration.response}"/>
+				
+			</h3>
+		</h:form>
+	</h:body> 
+</html>
